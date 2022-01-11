@@ -1,38 +1,6 @@
 /******/ (() => { // webpackBootstrap
 /******/ 	var __webpack_modules__ = ({
 
-/***/ 958:
-/***/ (function(__unused_webpack_module, exports, __nccwpck_require__) {
-
-"use strict";
-
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
-Object.defineProperty(exports, "__esModule", ({ value: true }));
-const core_1 = __importDefault(__nccwpck_require__(707));
-const VERSION = 'version';
-const REFS = 'refs';
-try {
-    const manuallyVersion = core_1.default.getInput(VERSION);
-    const refs = core_1.default.getInput(REFS);
-    if (refs !== '') {
-        const versions = refs.split('/');
-        const version = versions[versions.length - 1];
-        core_1.default.setOutput('version', version);
-    }
-    else if (manuallyVersion !== '') {
-        core_1.default.setOutput('version', '1.0.0');
-    }
-    core_1.default.setOutput('version', '1.0.0');
-}
-catch (e) {
-    core_1.default.setOutput('version', '1.0.0');
-}
-
-
-/***/ }),
-
 /***/ 995:
 /***/ (function(__unused_webpack_module, exports, __nccwpck_require__) {
 
@@ -1705,12 +1673,33 @@ module.exports = require("util");
 /******/ 	if (typeof __nccwpck_require__ !== 'undefined') __nccwpck_require__.ab = __dirname + "/";
 /******/ 	
 /************************************************************************/
-/******/ 	
-/******/ 	// startup
-/******/ 	// Load entry module and return exports
-/******/ 	// This entry module is referenced by other modules so it can't be inlined
-/******/ 	var __webpack_exports__ = __nccwpck_require__(958);
-/******/ 	module.exports = __webpack_exports__;
-/******/ 	
+var __webpack_exports__ = {};
+// This entry need to be wrapped in an IIFE because it need to be isolated against other modules in the chunk.
+(() => {
+const core = __nccwpck_require__(707);
+
+const VERSION = 'version';
+const REFS = 'refs'
+
+try {
+  const manuallyVersion = core.getInput(VERSION);
+  const refs = core.getInput(REFS);
+
+  if (refs !== '') {
+    const versions = refs.split('/');
+    const version = versions[versions.length - 1];
+
+    core.setOutput('version', version);
+  } else if (manuallyVersion !== '') {
+    core.setOutput('version', '1.0.0');
+  }
+
+  core.setOutput('version', '1.0.0');
+} catch (e) {
+  core.setOutput('version', '1.0.0');
+}
+})();
+
+module.exports = __webpack_exports__;
 /******/ })()
 ;
