@@ -1689,9 +1689,11 @@ try {
     const versions = refs.split('/');
     const version = versions[versions.length - 1];
 
+    console.log(version);
     core.setOutput('version', version);
   } else if (manuallyVersion !== '') {
-    core.setOutput('version', '1.0.0');
+    console.log(manuallyVersion);
+    core.setOutput('version', manuallyVersion);
   }
 
   core.setOutput('version', '1.0.0');
