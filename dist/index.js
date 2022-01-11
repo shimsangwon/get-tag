@@ -11521,7 +11521,7 @@ try {
 
   let version = null;
   if (manuallyVersion !== '') {
-    version = semver.coerce(manuallyVersion, {});
+    version = semver.coerce(manuallyVersion, {}).version;
   } else {
     const refs = ref.split('/');
     version = refs[refs.length - 1];
