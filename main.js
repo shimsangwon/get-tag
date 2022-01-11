@@ -1,4 +1,5 @@
 const core = require('@actions/core');
+const github = require('@actions/github');
 
 const VERSION = 'version';
 const REFS = 'refs'
@@ -11,7 +12,7 @@ try {
     const versions = refs.split('/');
     const version = versions[versions.length - 1];
 
-    console.log(version);
+    console.log(github.context.ref);
     core.setOutput('version', version);
   } else if (manuallyVersion !== '') {
     console.log(manuallyVersion);
