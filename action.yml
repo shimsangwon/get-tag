@@ -1,0 +1,17 @@
+name: 'Get Release Tag From Tag Array'
+description: '전달된 태그 목록 중에서 유효한 값을 찾아 반환합니다.'
+inputs:
+  version:
+    description: '수동으로 입력한 버전'
+    required: false
+    default: ''
+  refs:
+    description: 'release tag 버전( refs/tags/{version}'
+    required: false
+    default: ''
+outputs:
+  version:
+    description: '전달된 버전중에 유효한 값 반환( 만약 없으면 1.0.0 반환, 우선순위는 refs, m'
+runs:
+  using: 'node16'
+  main: 'dist/index.js'

@@ -1,0 +1,12 @@
+{
+  "name": "get-tag",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:shimsangwon/get-tag.git",
+  "author": "shimsangwon <sangwon.shim@powertask.biz>",
+  "license": "MIT",
+  "dependencies": {
+    "@actions/core": "^1.6.0",
+    "@actions/github": "^5.0.0"
+  }
+}
