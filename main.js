@@ -16,9 +16,9 @@ try {
   } else if (manuallyVersion !== '') {
     console.log(manuallyVersion);
     core.setOutput('version', manuallyVersion);
+  } else {
+    core.setOutput('version', '1.0.0');
   }
-
-  core.setOutput('version', '1.0.0');
 } catch (e) {
   core.setOutput('version', '1.0.0');
 }
